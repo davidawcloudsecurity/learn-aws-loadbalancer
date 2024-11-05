@@ -4,7 +4,7 @@ how to change rules in load balancer
 #!/bin/bash
 
 # Prompt the user for the Rule ARN
-read -p "Enter the number to redirect [1] to maintain [2] to revert back to norm: " RULE_ARN
+read -p "Enter the number to redirect [1] to maintain [2] to revert back to norm: " RUN_ARN
 
 RULE_ARN_server=
 TARGET_GROUP_backend=
