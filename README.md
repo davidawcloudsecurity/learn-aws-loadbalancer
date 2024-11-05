@@ -24,17 +24,17 @@ if [ "$RUN_ARN" -ne 2 ]; then
   # Modify the load balancer rule for the platform to respond with a fixed 503 Service Unavailable response
   aws elbv2 modify-rule \
     --rule-arn "$RULE_ARN_platform" \
-    --actions "$TARGET_GROUP_redirect"
+    --actions Type=forward,TargetGroupArn="$TARGET_GROUP_redirect"
 else
   # Modify the load balancer rule for the server to respond with a fixed 503 Service Unavailable response
   aws elbv2 modify-rule \
     --rule-arn "$RULE_ARN_server" \
-    --actions "$TARGET_GROUP_backend"
+    --actions Type=forward,TargetGroupArn="$TARGET_GROUP_backend"
 
   # Modify the load balancer rule for the platform to respond with a fixed 503 Service Unavailable response
   aws elbv2 modify-rule \
     --rule-arn "$RULE_ARN_platform" \
-    --actions "$TARGET_GROUP_frontend"
+    --actions Type=forward,TargetGroupArn="$TARGET_GROUP_frontend"
 fi
 ```
 ### How to view list of load balancers' name and arn
