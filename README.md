@@ -29,13 +29,6 @@ TARGET_GROUP_ARN=$2
 aws elbv2 modify-rule \
   --rule-arn "$RULE_ARN" \
   --actions Type=forward,TargetGroupArn="$TARGET_GROUP_ARN"
-
-# Check if the command was successful
-if [ $? -eq 0 ]; then
-  echo "Successfully updated the rule to forward to the target group: $TARGET_GROUP_ARN"
-else
-  echo "Failed to update the rule."
-fi
 ```
 ### how to modify a rule to a string
 ```bash
