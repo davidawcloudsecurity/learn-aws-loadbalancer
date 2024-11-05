@@ -18,7 +18,7 @@ aws elbv2 describe-target-groups --query "TargetGroups[?contains(TargetGroupName
 
 # Check if the required inputs are provided
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <RULE_ARN> <TARGET_GROUP_ARN>"
+  echo "Usage: $0 <RULE_ARN of /platform> <TARGET_GROUP_ARN of redirect-maintenance>"
   exit 1
 fi
 
@@ -36,7 +36,7 @@ aws elbv2 modify-rule \
 
 # Check if the required inputs are provided
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <RULE_ARN> <Type=fixed-response,FixedResponseConfig={StatusCode=503,ContentType="text/plain",MessageBody="Service Unavailable"}>"
+  echo "Usage: $0 <RULE_ARN of /server>"
   exit 1
 fi
 
