@@ -14,7 +14,7 @@ TARGET_GROUP_redirect=
 
 TARGET_GROUP_STRING='Type=fixed-response,FixedResponseConfig={StatusCode=503,ContentType="text/plain",MessageBody="Service Unavailable"}'
 
- Check if RUN_ARN is not equal to 2
+# Check if RUN_ARN is not equal to 2
 if [ "$RUN_ARN" -ne 2 ]; then
   # Modify the load balancer rule for the server to respond with a fixed 503 Service Unavailable response
   aws elbv2 modify-rule \
